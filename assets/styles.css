@@ -1,0 +1,55 @@
+.button {
+    width: 150px;
+    height: 50px;
+    padding: 0px;
+}
+
+.button_div {
+    padding-left: 0px;
+    padding-right: 100px;
+    width: 200px;
+}
+
+.nn_param_input {
+    width: 100px;
+    padding-top: 0px;
+}
+
+.n_nodes_input {
+    width: 100px;
+    padding-top: 0px;
+}
+
+#model_selection_dropdown {
+    width: 300px;
+}
+
+#model_selection_div {
+    padding-top: 100px;
+}
+
+#nn_input_row {
+    padding-top: 100px;
+}
+
+#img_selection {
+    max-width: 300px;
+    height: 200px;
+}
+
+
+.img_row {
+    width: 200px;
+    padding: 0px;
+}
+
+#digit_img {
+    padding: 0px;
+    height: 250px;
+    width: 250px;
+}
+
+#MLP_graph {
+    height: 800px;
+    width: 1700px;
+}
