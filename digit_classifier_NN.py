@@ -205,7 +205,7 @@ def train_NN(model, n_epochs=1, batch_size=8, lr=0.1, queue=None):
     
     for epoch in range(n_epochs):
         running_loss = 0
-        for batch_idx, (data, labels) in enumerate(trainloader):
+        for batch, (data, labels) in enumerate(trainloader):
             optimizer.zero_grad()
 
             outputs = model(data)
@@ -216,15 +216,15 @@ def train_NN(model, n_epochs=1, batch_size=8, lr=0.1, queue=None):
 
             running_loss += loss.item()
 
-            # print(f"batch {batch_idx}: loss = {loss.item():.4f}", end="\r")
-            if batch_idx%1==0:
+            # print(f"batch {batch}: loss = {loss.item():.4f}", end="\r")
+            if batch%1==0:
                 if queue is not None and queue.empty():
                     status = {
                         'epoch': epoch, 
-                        'batch_idx': batch_idx, 
+                        'batch': batch, 
                         'loss': running_loss/len(trainloader), 
                         'accuracy': check_accuracy(model, train_images, train_labels),
-                        'epoch_completed': batch_idx/len(trainloader)
+                        'epoch_completed': batch/len(trainloader)
                         }
                     queue.put(status)
         # print(f"Epoch {epoch}: running_loss = {running_loss/len(trainloader):.4f}. Accuracy = {100*accuracy:.2f}%")
